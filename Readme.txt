@@ -1,22 +1,17 @@
 # PopLDdecay
-<b>[PopLDdecay: a fast and effective tool for linkage disequilibrium decay analysis based on variant call format files](https://doi.org/10.1093/bioinformatics/bty875)</b>
-
-The <i><b>[PopLDdecay article](https://doi.org/10.1093/bioinformatics/bty875)</b></i> has been published in <b> [Bioinformatics](https://doi.org/10.1093/bioinformatics/bty875) magazine</b>, please cited this article if possible
-
-PMID: [30321304](https://www.ncbi.nlm.nih.gov/pubmed/30321304)   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;            DOI:[10.1093/bioinformatics/bty875](https://doi.org/10.1093/bioinformatics/bty875)
+<b>PopLDdecay: A new simple and efficient software for Linkage Disequilibrium Decay analysis based Variant Call Format</b>
+</br>
 
 ###  1) Install
 ------------
-The <b>new version</b> will be updated and maintained in <b>[hewm2008/PopLDdecay](https://github.com/hewm2008/PopLDdecay)</b>, please click below website to download the latest version
-</br><p align="center"><b>[hewm2008/PopLDdecay](https://github.com/hewm2008/PopLDdecay)</b></p>
 
-<b> [Download](https://github.com/hewm2008/PopLDdecay/archive/v3.42.tar.gz) </b>
+<b> [Download](https://github.com/hewm2008/PopLDdecay/archive/v3.31.tar.gz) </b>
 
 </br>
 Method1 For <b>linux/Unix</b> and <b> macOS </b>
 <pre>
-        git clone https://github.com/hewm2008/PopLDdecay.git 
-        cd PopLDdecay; chmod 755 configure; ./configure;
+        git clone https://github.com/hewm2008/PopLDdecay.git
+        chmod 755 configure; ./configure;
         make;
         mv PopLDdecay  bin/;    #     [rm *.o]
 </pre>
@@ -38,7 +33,7 @@ Method2 For <b>linux/Unix</b> and <b> macOS </b>
 ###  2) Example
 ------------
 
-see more detailed Usage in the <b>[Documentation](https://github.com/hewm2008/PopLDdecay/blob/main/Manual.pdf)</b>
+see more detailed Usage in the <b>[Documentation](https://github.com/hewm2008/PopLDdecay/blob/main/Help_documentation.pdf)</b>
 
 
 * 1) Calculate LD decay 
@@ -78,28 +73,39 @@ Linkage disequilibrium (LD) decay[1] is the most important and most common analy
 		-MAF         <float>  Min minor allele frequency filter [0.005]
 		-Het         <float>  Max ratio of het allele filter [0.88]
 		-Miss        <float>  Max ratio of miss allele filter [0.25]
-		-EHH         <str>    To Run EHH Region decay set StartSite [NA]
 		-OutFilterSNP         OutPut the final SNP to calculate
-		-OutType     <int>    1: R^2 result 2: R^2 & D' result 3:PairWise LD Out[1]
-		                      See the Help for more OutType [1-8] details
-		
-		-help                 Show more help [hewm2008 v3.42]
+		-OutPairLD   <int>    OutPut the PairWise SNP LD info [0]
+		                      0/2:No_Out 1/3/4:Out_Brief 5:Out_Full
+
+		-help                 Show more help [hewm2008 v3.30]
 
 ```
 
+###  4) Compare result 
+------------
+Used Data of this [web site](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20130502) to test follow software, with only two based site in chr22 (minimal SNP database) of the [1000 Genomes Project](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20130502/)
+ALL the pair-wise SNP R^2 is the same.
 
-###  4) Results
+| version       |    Average memory  |  Core calculation CPUs  | Format conver&Statistics Time CPU  | result size|
+|:-------------:|:------------------:|:-----------------------:|:----------------------------------:|:-----------:|
+|板本号         |     平均内存       |    核心程序计算时间     |   输入格式转化和结果统计时间       |   输出结果  |
+|Plink 1.07     |     1.4G           |     680min              |    5 min+45min                     |      54G    |
+|Plink 2.0      |     18.807G        |     25min               |    5 min+45min                     |      54G    |
+|Haploview 4.2  |     95.760G        |     3904min             |    5 min+45min                     |      54G    |
+|PopLDdcay 3.30 |     1.5G           |     200min              |    0 min                           |      4.1M   |
+
+
+###  5) Results
 ------------
 some LD decay images which I draw in the paper before.
 
 * [50 Rices NBT](http://www.nature.com/nbt/journal/v30/n1/images/nbt.2050-F2.jpg)
 * [31 soybeans  NG]( http://www.nature.com/ng/journal/v42/n12/images/ng.715-F1.jpg)
 
-###  5) Discussing
+###  6) Discussing
 ------------
 - [:email:](https://github.com/hewm2008/PopLDdecay) hewm2008@gmail.com / hewm2008@qq.com
 - join the<b><i> QQ Group : 125293663</b></i>
-- <i><b>[PopLDdecay article](https://doi.org/10.1093/bioinformatics/bty875)</b></i> has been published in <b> [Bioinformatics](https://doi.org/10.1093/bioinformatics/bty875) magazine</b>, please cited this article if possible
-- PMID: [30321304](https://www.ncbi.nlm.nih.gov/pubmed/30321304)   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;            DOI:[10.1093/bioinformatics/bty875](https://doi.org/10.1093/bioinformatics/bty875)
 
-######################swimming in the sky and flying in the sea #############################
+
+######################swimming in the sky and flying in the sea ########################### ##
