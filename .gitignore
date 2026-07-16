@@ -1,0 +1,13 @@
+*.o
+/bin/*.o
+/bin/PopLDdecay
+/bin/PopLDdecay.exe
+src/tmpsrc/
+stamp-h1
+config.log
+config.status
+config.h.in~
+autom4te.cache/
+.deps/
+Test/
+.DS_Store
